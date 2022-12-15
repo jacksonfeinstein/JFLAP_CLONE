@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, intitial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>JFLAP Clone</title>
+    <script src="app.js" type="module" defer></script>
+</head>
+<body>   
+    <section class="container">
+        <div id="toolbar">    
+            <!--For interacting with states-->
+            <h1>States</h1>
+            <label for="creation">Creation</label>
+            <button id="save">Save</button>
+            <button id="cursor">Cursor</button>
+            <button id="edit">Move</button>
+            <button id="circle">State</button>
+            <button id="add">Add</button>
+            <button id="type">Type</button>
+            <button id="remove">Remove</button>
+            <button id="clear">Clear</button>
+            <!--DFA operations-->
+            <h1>DFA</h1>
+            <!--Membership-->
+            <label for="DFAmember">Membership</label>
+            <input id="DFAstring" name="DFAstring" type="text">
+            <input id="DFA" name="DFA" type="file">
+            <button id="DFAmembership">Test</button>
+            <!--Equivalence-->
+            <!--
+            <label for="DFAequivalence">Equivalence</label>
+            <input id="firstFile" name="firstFile" type="file">
+            <input id="secondFile" name="secondFile" type="file">
+            <button id="testDFAequivalence">Test</button>
+            -->
+            <!--Minimization-->
+            <label for="DFAminimization">Minimization</label>
+            <input id="minimize" name="minimize" type="file">
+            <button id="DFAminimize">Minimize</button>
+            <!--NFA membership-->
+            <h1>NFA</h1>
+            <label for="NFAmember">Membership</label>
+            <input id="NFAstring" name="NFAstring" type="text">
+            <input id="NFA" name="NFA" type="file">
+            <button id="NFAmembership">Test</button>
+        </div>
+        <div class="drawing-board">
+            <canvas id="drawing-board"></canvas>
+            <div id="overlay">
+                <label for="addTransition">Add Transition</label>
+                <!--Input current state-->
+                <label for="currentState">Current State</label>
+                <input id="currentState" name="currentState" type="text">
+                <!--Input next state-->
+                <label for="nextState">Next State</label>
+                <input id="nextState" name="nextState" type="text">
+                <!--Int transition-->
+                <label for="transition">Transition</label>
+                <input id="transition" name="transition" type="text">
+                <!--Save changes-->
+                <button id="saveTransition">Save</button>
+            </div>
+            <div id="type_overlay">
+                <label for="currentState_Type">Current State</label>
+                <input id="currentState_Type" name="currentState" type="text">
+                <!--State type choices-->
+                <label for="stateType">State Type</label>
+                <button id="regularState">Regular</button>
+                <button id="startingState">Starting</button>
+                <button id="acceptingState">Accepting</button>
+                <!--Reset state type to empty-->
+                <button id="resetTypes">Reset</button>
+            </div>
+        </div>
+        <div class="popups" id="popups">
+            <!--Popup to read file name to save transition table to-->
+            <div class="popup" id="save-popup">
+                <!--Header-->
+                <div class="save-popup-header" id="save-popup-header">
+                    <div class="save-header">Save This Diagram</div>
+                    <button class="close-button" id="close-button">&times;</button>
+                </div>
+                <!--Body-->
+                <div class="save-popup-body">
+                    <div>Title</div>
+                    <input id="saveFA" name="saveFA" value="Untitled Diagram" type="text">
+                    <button type="button" id="save-btn">Save</button>                
+                </div>
+            </div>
+            <!--Popup DFA membership-->
+            <div class="popup" id="DFA-popup">
+                <!--Header-->
+                <div class="DFA-popup-header">
+                    <div class="DFA-header" id="DFA-header"></div>
+                </div>
+            </div>
+            <!--Popup NFA membership-->
+            <div class="popup" id="NFA-popup">
+                <!--Header-->
+                <div class="NFA-popup-header">
+                    <div class="NFA-header" id="NFA-header"></div>
+                </div>
+            </div>
+            <!--Popup DFA equivalence-->
+            <div class="popup" id="equivalence-popup">
+                <!--Header-->
+                <div class="equivalence-popup-header">
+                    <div class="equivalence-header" id="equivalence-header"></div>
+                </div>
+            </div>             
+            <div id="popup-overlay"></div>
+   
+        </div>
+    </section>
+</body>
+</html>
